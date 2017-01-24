@@ -1,37 +1,63 @@
-export const spamify_spam = () => ({
-	type: 'SPAMIFY_SPAM',
+
+const update_blogposts = data => ({
+	type: 'UPDATE_BLOGPOSTS',
+	data
 })
 
-export const hamify_spam = () => ({
-	type: 'HAMIFY_SPAM',
-})
 
-export const replace_paula = (new_paula) => ({
-	type: 'REPLACE_PAULA',
-	paula: new_paula,
-})
 
-//"Second-half" actions don't have to be exported (they're only called from
-//here). It doesn't hurt to export them, though, if you prefer consistency.
-const fetch_hello_success = message => ({
-	type: 'FETCH_HELLO_SUCCESS',
-	message
-})
 
-//A single generic failure message can be used for all network failures,
-//unless you specifically need to do something when a particular one fails.
-const report_failure = (what, err) => ({
-	type: 'REPORT_FAILURE',
-	what, err
-})
-
-export const fetch_hello = () => dispatch => {
-	return fetch("/hello").then(response => {
-		if (!response.ok) throw(new Error(response.statusText));
-		return response.json();
-	}).then(data =>
-		dispatch(fetch_hello_success(data.message))
-	).catch(error =>
+export const addPost = (title, content, tags) => dispatch => {
+	return fetch('/create-blog', {
+		  method: 'POST',
+		  headers: {
+		    'Content-Type': 'application/json'
+		  },
+		  body: JSON.stringify({
+		    title: title,
+		    content: content,
+		    tags: tags
+		  })
+		}).then((response) => {
+		    return response.json()
+		  }).then((data) => {
+		  	dispatch(update_blogposts(data))
+		  }
+		).catch(error =>
 		dispatch(report_failure("fetch_hello", error))
 	);
 }
+
+export const removeBlogPost = (blogPost) => dispatch => {
+	console.log("blogPost is", blogPost);
+	// var i;
+	// for (var j = 0; j < this.state.blogposts.length; j++) {
+	// 	if (this.state.blogposts[j]._id === blogPost._id) {
+	// 		var i = this.state.blogposts[j];
+	// 	}
+	// }
+	// if(i !== -1) {
+		return fetch('/blogs/' + blogPost._id, {
+		  	method: 'DELETE',
+		  	headers: {
+		    'Content-Type': 'application/json'
+		  },
+		  body: JSON.stringify({
+		   id: blogPost._id
+		 })
+	}).then((response) => {
+		   return response.json()
+		 }).then((data) => {
+		 	dispatch(update_blogposts(data))
+		  // this.setState({ blogposts: data })
+		 })
+	//}
+}
+
+
+
+
+
+
+
+

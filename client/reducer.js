@@ -1,11 +1,23 @@
-//import * as actions from './actions';
 
-const initial_state = {
+
+const initialState = {
 	blogposts: [],
 	showEdit: false,
 	blogToEdit: ''
 }
+	
+const reducer = (state, action) => {
+	let copyState = state || initialState;
+	state = Object.assign({}, copyState);
+	
+	if (action.type === 'UPDATE_BLOGPOSTS') {
+		console.log("reducer action UPDATE called");
+		return {...state, blogposts: action.data} // equiv. of this.setState
+	}
 
-export default function reducer(state=initial_state, action={}) {
 	return state;
 }
+
+exports.reducer = reducer;
+
+

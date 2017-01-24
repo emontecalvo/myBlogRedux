@@ -11,7 +11,7 @@ const mongoose   = require('mongoose')
 
 const Blog = require('./models/blog')
 
-mongoose.connect('mongodb://localhost:27017/myBlog');
+mongoose.connect('mongodb://localhost:27017/myBlogRedux');
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())

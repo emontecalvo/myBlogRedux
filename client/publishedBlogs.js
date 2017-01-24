@@ -1,16 +1,16 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import * as actions from './actions';
 
+//blogs, removeBlogPost, editBlogStart
 
+const publishedBlogs = (props) => {
 
-const publishedBlogs = ({blogs, removeBlogPost, editBlogStart}) => {
-
-  console.log(blogs);
+  console.log("props are", props);
 
   return (
     <ul>
-      {blogs.map((blog, index) => {
-      	console.log("blog title is", blog.title);
+      {props.blogposts.map((blog, index) => {
         return <div key={index}>
         		<li>{blog.title}</li>
         			<ul>
@@ -18,7 +18,7 @@ const publishedBlogs = ({blogs, removeBlogPost, editBlogStart}) => {
 		        		<li>{blog.tags}</li>
 		        	</ul>
 		        	<button onClick={() => editBlogStart(blog)}>edit</button>
-		        	<button onClick={() => removeBlogPost(blog)}>remove</button>
+		        	<button onClick={() => props.removeBlogPost(blog)}>remove</button>
              </div>;
       })}
     </ul>
@@ -26,4 +26,16 @@ const publishedBlogs = ({blogs, removeBlogPost, editBlogStart}) => {
 
 }
 
-module.exports = publishedBlogs;
+
+export default connect((state, props) => ({
+  //Select your state -> props mappings here
+  blogposts: state.blogposts,
+}))(publishedBlogs);
+
+//es5 syntax
+//module.exports = publishedBlogs;
+
+
+
+
+
