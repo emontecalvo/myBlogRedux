@@ -12,15 +12,9 @@ class Home extends React.Component {
         this.addBlog = this.addBlog.bind(this);
 	}
 
-	// componentDidMount() {
-	// 	this.props.dispatch(actions.addPost());
-	// 	// fetch('/blogs')
-	// 	//   .then((response) =>{
-	// 	//     return response.json()
-	// 	//   }).then((data) =>{
-	// 	//     this.setState({ blogposts: data })
-	// 	//   })
-	// }
+	componentDidMount() {
+		this.props.dispatch(actions.renderBlogs());
+	}
 
 	addBlog(title, content, tags) {
 		this.props.dispatch(actions.addPost(title, content, tags));

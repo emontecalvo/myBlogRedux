@@ -54,8 +54,6 @@ export const removeBlogPost = (blogPost) => dispatch => {
 		 })
 }
 
-
-
 export const editPost = (blogToEdit) => dispatch => {
 	console.log("***** ***** **** *blogToEdit is", blogToEdit);
 	return fetch('/editblogs/' + blogToEdit, { // this is sending req.params
@@ -71,6 +69,16 @@ export const editPost = (blogToEdit) => dispatch => {
 		}).then((blogToEdit) => {
 			dispatch(edit_for_real(blogToEdit))
 	})
+}
+
+export const renderBlogs = () => dispatch => {
+	return fetch('/blogs')
+		  .then((response) =>{
+		    return response.json()
+		  }).then((data) =>{
+		  	dispatch(update_blogposts(data))
+		    // this.setState({ blogposts: data })
+		  })
 }
 
 
