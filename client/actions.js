@@ -5,6 +5,16 @@ const update_blogposts = data => ({
 })
 
 
+export const edit_blog_start = (blogPost) => ({
+	type: 'EDIT_BLOG_START',
+	blogPost
+})
+
+const edit_for_real = blogPost => ({
+	type: 'EDIT_FOR_REAL',
+	blogPost
+})
+
 
 
 export const addPost = (title, content, tags) => dispatch => {
@@ -29,14 +39,6 @@ export const addPost = (title, content, tags) => dispatch => {
 }
 
 export const removeBlogPost = (blogPost) => dispatch => {
-	console.log("blogPost is", blogPost);
-	// var i;
-	// for (var j = 0; j < this.state.blogposts.length; j++) {
-	// 	if (this.state.blogposts[j]._id === blogPost._id) {
-	// 		var i = this.state.blogposts[j];
-	// 	}
-	// }
-	// if(i !== -1) {
 		return fetch('/blogs/' + blogPost._id, {
 		  	method: 'DELETE',
 		  	headers: {
@@ -49,13 +51,27 @@ export const removeBlogPost = (blogPost) => dispatch => {
 		   return response.json()
 		 }).then((data) => {
 		 	dispatch(update_blogposts(data))
-		  // this.setState({ blogposts: data })
 		 })
-	//}
 }
 
 
 
+export const editPost = (blogToEdit) => dispatch => {
+	console.log("***** ***** **** *blogToEdit is", blogToEdit);
+	return fetch('/editblogs/' + blogToEdit, { // this is sending req.params
+		method: 'PUT',
+		headers: {
+		'Content-Type': 'application/json'
+		 },
+		body: JSON.stringify({  /// this is the req.body, this is being passed to the server
+		item: blogToEdit
+		  })
+		}).then((response) => {
+		    return response.json()
+		}).then((blogToEdit) => {
+			dispatch(edit_for_real(blogToEdit))
+	})
+}
 
 
 

@@ -17,7 +17,7 @@ const publishedBlogs = (props) => {
 		        		<li>{blog.content}</li>
 		        		<li>{blog.tags}</li>
 		        	</ul>
-		        	<button onClick={() => editBlogStart(blog)}>edit</button>
+		        	<button onClick={() => props.editBlogStart(blog)}>edit</button>
 		        	<button onClick={() => props.removeBlogPost(blog)}>remove</button>
              </div>;
       })}
