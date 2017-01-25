@@ -1,10 +1,22 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import * as actions from './actions';
 
 
 
-const newBlog = ({addBlog}) => {
 
+class newBlog extends React.Component {
+
+	constructor(props) {
+        super(props);
+        this.addBlog = this.addBlog.bind(this);
+	}
+
+	addBlog(title, content, tags) {
+		this.props.dispatch(actions.addPost(title, content, tags));
+	}
+
+	render() {
 		return(
 			 <div>
 			    <form
@@ -13,7 +25,7 @@ const newBlog = ({addBlog}) => {
 			        let title = e.target.title.value
 			        let content = e.target.content.value
 			        let tags = e.target.tags.value
-			        addBlog(title, content, tags)
+			        this.addBlog(title, content, tags)
 			        e.target.title.value = ''
 			        e.target.content.value = ''
 			        e.target.tags.value = ''
@@ -30,7 +42,18 @@ const newBlog = ({addBlog}) => {
   </form>
 			</div>
 		)
+	}
 
 }
 
-module.exports = newBlog;
+// module.exports = newBlog;
+
+export default connect((state, props) => ({
+  //Select your state -> props mappings here
+  blogposts: state.blogposts
+}))(newBlog);
+
+
+
+
+

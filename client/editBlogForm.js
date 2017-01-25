@@ -3,9 +3,19 @@ import {connect} from 'react-redux';
 import * as actions from './actions';
 
 //blogToEdit, editBlogPost
-const editBlogForm = (props) => {
-  console.log('props is editblog form', props);
 
+class editBlogForm extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  editBlogPost(blogToEdit) {
+    console.log("HOME comp, edit blog, blogtoEdit is:", blogToEdit)
+    this.props.dispatch(actions.editPost(blogToEdit));
+  }
+
+  render() {
     return(
           <div>
           <form
@@ -14,20 +24,16 @@ const editBlogForm = (props) => {
               let title = e.target.title.value
               let content = e.target.content.value
               let tags = e.target.tags.value
-              props.blogToEdit.title = title
-              props.blogToEdit.content = content
-              props.blogToEdit.tags = tags
-              props.editBlogPost(props.blogToEdit)
-
-              // e.target.title.value = 'hello'
-              // e.target.content.value = blogToEdit.content
-              // e.target.tags.value = blogToEdit.tags
+              this.props.blogToEdit.title = title
+              this.props.blogToEdit.content = content
+              this.props.blogToEdit.tags = tags
+              this.editBlogPost(this.props.blogToEdit)
             }}
           >
 
-      <input type="text" name="title" defaultValue={props.blogToEdit.title}/>
-      <textarea rows="4" cols="50" name="content" defaultValue={props.blogToEdit.content}/>
-      <input type="text" name="tags" defaultValue={props.blogToEdit.tags}/>
+      <input type="text" name="title" defaultValue={this.props.blogToEdit.title}/>
+      <textarea rows="4" cols="50" name="content" defaultValue={this.props.blogToEdit.content}/>
+      <input type="text" name="tags" defaultValue={this.props.blogToEdit.tags}/>
 
     <button type="submit">
       Save Edit
@@ -35,7 +41,13 @@ const editBlogForm = (props) => {
   </form>
       </div>
     )
-
+  }
 }
 
-module.exports = editBlogForm;
+//module.exports = editBlogForm;
+export default connect((state, props) => ({
+  //Select your state -> props mappings here
+  blogposts: state.blogposts,
+  showEdit: state.showEdit,
+  blogToEdit: state.blogToEdit,
+}))(editBlogForm);
