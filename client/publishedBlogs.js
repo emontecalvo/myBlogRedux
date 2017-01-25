@@ -2,9 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as actions from './actions';
 
-//blogs, removeBlogPost, editBlogStart
 
-// const publishedBlogs = (props) => {
 class publishedBlogs extends React.Component {
 
   constructor(props) {
@@ -44,12 +42,7 @@ class publishedBlogs extends React.Component {
 
 
 
-//es5 syntax
-//module.exports = publishedBlogs;
-
-
 export default connect((state, props) => ({
-  //Select your state -> props mappings here
   blogposts: state.blogposts,
   showEdit: state.showEdit,
   blogToEdit: state.blogToEdit,

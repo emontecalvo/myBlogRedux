@@ -1,5 +1,4 @@
 
-
 const initialState = {
 	blogposts: [],
 	showEdit: false,
@@ -17,7 +16,7 @@ const reducer = (state, action) => {
 
 	if (action.type === 'EDIT_BLOG_START') {
 		console.log("reducer action EDIT BLOG START");
-		return {...state, blogposts: state.blogposts, showEdit: true, blogToEdit: action.blogPost} // equiv. of this.setState
+		return {...state, blogposts: state.blogposts, showEdit: true, blogToEdit: action.blogPost}
 	}
 
 	if (action.type === 'EDIT_FOR_REAL') {

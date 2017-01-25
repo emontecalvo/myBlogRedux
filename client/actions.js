@@ -15,8 +15,6 @@ const edit_for_real = blogPost => ({
 	blogPost
 })
 
-
-
 export const addPost = (title, content, tags) => dispatch => {
 	return fetch('/create-blog', {
 		  method: 'POST',
@@ -55,7 +53,6 @@ export const removeBlogPost = (blogPost) => dispatch => {
 }
 
 export const editPost = (blogToEdit) => dispatch => {
-	console.log("***** ***** **** *blogToEdit is", blogToEdit);
 	return fetch('/editblogs/' + blogToEdit, { // this is sending req.params
 		method: 'PUT',
 		headers: {
@@ -77,7 +74,6 @@ export const renderBlogs = () => dispatch => {
 		    return response.json()
 		  }).then((data) =>{
 		  	dispatch(update_blogposts(data))
-		    // this.setState({ blogposts: data })
 		  })
 }
 

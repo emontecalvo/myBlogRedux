@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as actions from './actions';
 
-//blogToEdit, editBlogPost
 
 class editBlogForm extends React.Component {
 
@@ -44,9 +43,8 @@ class editBlogForm extends React.Component {
   }
 }
 
-//module.exports = editBlogForm;
+
 export default connect((state, props) => ({
-  //Select your state -> props mappings here
   blogposts: state.blogposts,
   showEdit: state.showEdit,
   blogToEdit: state.blogToEdit,

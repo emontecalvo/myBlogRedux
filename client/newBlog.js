@@ -3,8 +3,6 @@ import {connect} from 'react-redux';
 import * as actions from './actions';
 
 
-
-
 class newBlog extends React.Component {
 
 	constructor(props) {
@@ -46,10 +44,8 @@ class newBlog extends React.Component {
 
 }
 
-// module.exports = newBlog;
 
 export default connect((state, props) => ({
-  //Select your state -> props mappings here
   blogposts: state.blogposts
 }))(newBlog);
 
