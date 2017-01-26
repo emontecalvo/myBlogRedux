@@ -4,7 +4,6 @@ const update_blogposts = data => ({
 	data
 })
 
-
 export const edit_blog_start = (blogPost) => ({
 	type: 'EDIT_BLOG_START',
 	blogPost
@@ -16,9 +15,9 @@ const edit_for_real = blogPost => ({
 })
 
 export const addPost = (title, content, tags) => dispatch => {
-	return fetch('/create-blog', {
-		  method: 'POST',
-		  headers: {
+	return fetch('/create-blog', { /// send a request, waits until it has the headers
+		method: 'POST',
+		headers: {
 		    'Content-Type': 'application/json'
 		  },
 		  body: JSON.stringify({
@@ -27,29 +26,28 @@ export const addPost = (title, content, tags) => dispatch => {
 		    tags: tags
 		  })
 		}).then((response) => {
-		    return response.json()
-		  }).then((data) => {
+		    return response.json() // looks for json coming back from server
+		}).then((data) => { // this gets the actual data
 		  	dispatch(update_blogposts(data))
-		  }
-		).catch(error =>
-		dispatch(report_failure("fetch_hello", error))
-	);
+		}).catch(error =>
+			dispatch(report_failure("fetch_hello", error))
+		);
 }
 
 export const removeBlogPost = (blogPost) => dispatch => {
-		return fetch('/blogs/' + blogPost._id, {
-		  	method: 'DELETE',
-		  	headers: {
-		    'Content-Type': 'application/json'
-		  },
-		  body: JSON.stringify({
+	return fetch('/blogs/' + blogPost._id, {
+		method: 'DELETE',
+		headers: {
+		  'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
 		   id: blogPost._id
-		 })
+		})
 	}).then((response) => {
-		   return response.json()
-		 }).then((data) => {
-		 	dispatch(update_blogposts(data))
-		 })
+		return response.json()
+	}).then((data) => {
+		dispatch(update_blogposts(data))
+	})
 }
 
 export const editPost = (blogToEdit) => dispatch => {
@@ -70,11 +68,11 @@ export const editPost = (blogToEdit) => dispatch => {
 
 export const renderBlogs = () => dispatch => {
 	return fetch('/blogs')
-		  .then((response) =>{
+		.then((response) =>{
 		    return response.json()
-		  }).then((data) =>{
+		}).then((data) =>{
 		  	dispatch(update_blogposts(data))
-		  })
+		})
 }
 
 

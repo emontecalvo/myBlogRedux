@@ -20,19 +20,24 @@ class publishedBlogs extends React.Component {
 
   render() { 
     return (
-      <ul>
-        {this.props.blogposts.map((blog, index) => {
-          return <div key={index}>
-          		<li>{blog.title}</li>
-          			<ul>
-  		        		<li>{blog.content}</li>
-  		        		<li>{blog.tags}</li>
-  		        	</ul>
-  		        	<button onClick={() => this.editBlogStart(blog)}>edit</button>
-  		        	<button onClick={() => this.removeBlogPost(blog)}>remove</button>
-               </div>;
-        })}
-      </ul>
+      <div className="all_blog_wrapper">
+        <p className="prev_posts">previous blog posts:</p>
+        <ul>
+          {this.props.blogposts.map((blog, index) => {
+            return <div key={index}>
+              <div className="single_blog_wrapper">
+            		<li className="title">{blog.title}</li>
+            			<ul>
+    		        		<li>{blog.content}</li>
+    		        		<li>{blog.tags}</li>
+    		        	</ul>
+    		        	<button onClick={() => this.editBlogStart(blog)}>edit</button>
+    		        	<button onClick={() => this.removeBlogPost(blog)}>remove</button>
+                  </div>
+                </div>;
+          })}
+        </ul>
+      </div>
     )
   }
 
