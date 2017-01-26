@@ -31,8 +31,8 @@ class publishedBlogs extends React.Component {
     		        		<li>{blog.content}</li>
     		        		<li>{blog.tags}</li>
     		        	</ul>
-    		        	<button onClick={() => this.editBlogStart(blog)}>edit</button>
-    		        	<button onClick={() => this.removeBlogPost(blog)}>remove</button>
+    		        	<button className="edit" onClick={() => this.editBlogStart(blog)}>edit</button>
+    		        	<button className="remove" onClick={() => this.removeBlogPost(blog)}>remove</button>
                   </div>
                 </div>;
           })}
