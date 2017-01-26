@@ -10,7 +10,6 @@ class editBlogForm extends React.Component {
   }
 
   editBlogPost(blogToEdit) {
-    console.log("HOME comp, edit blog, blogtoEdit is:", blogToEdit)
     this.props.dispatch(actions.editPost(blogToEdit));
   }
 

@@ -14,8 +14,6 @@ class publishedBlogs extends React.Component {
   }
 
   editBlogStart(blogPost) {
-    console.log("i am in editStart");
-    console.log("EDITSTART BLOG POST IS", blogPost);
     this.props.dispatch(actions.edit_blog_start(blogPost));
   }
 

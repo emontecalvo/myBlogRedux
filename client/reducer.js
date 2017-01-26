@@ -10,17 +10,14 @@ const reducer = (state, action) => {
 	state = Object.assign({}, copyState);
 	
 	if (action.type === 'UPDATE_BLOGPOSTS') {
-		console.log("reducer action UPDATE called");
 		return {...state, blogposts: action.data} // equiv. of this.setState
 	}
 
 	if (action.type === 'EDIT_BLOG_START') {
-		console.log("reducer action EDIT BLOG START");
 		return {...state, blogposts: state.blogposts, showEdit: true, blogToEdit: action.blogPost}
 	}
 
 	if (action.type === 'EDIT_FOR_REAL') {
-		console.log("reducer action Edit for real");
 		  	var blog_sub = [];
 		  	for (var a = 0; a < state.blogposts.length; a++) {
 		  		if (state.blogposts[a]._id !== action.blogPost._id) {
