@@ -1,5 +1,16 @@
 /* Put CSS rules here */
 
+/*.dark-primary-color    { background: #00796B; }  DARK TEAL
+.default-primary-color { background: #009688; }    TEAL
+.light-primary-color   { background: #B2DFDB; }		LIGHT TEAL
+.text-primary-color    { color: #FFFFFF; }			WHITE
+.accent-color          { background: #00BCD4; }		BLUE
+.primary-text-color    { color: #212121; }			BLACK
+.secondary-text-color  { color: #757575; }			medium gray
+.divider-color         { border-color: #BDBDBD; }	light gray */
+
+
+
 
 @import url('https://fonts.googleapis.com/css?family=Lato');
 * {
