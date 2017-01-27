@@ -1,16 +1,11 @@
-/* Put CSS rules here */
-
-/*.dark-primary-color    { background: #00796B; }  DARK TEAL
-.default-primary-color { background: #009688; }    TEAL
-.light-primary-color   { background: #B2DFDB; }		LIGHT TEAL
-.text-primary-color    { color: #FFFFFF; }			WHITE
-.accent-color          { background: #00BCD4; }		BLUE
-.primary-text-color    { color: #212121; }			BLACK
-.secondary-text-color  { color: #757575; }			medium gray
-.divider-color         { border-color: #BDBDBD; }	light gray */
-
-
-
+/*. { background: #00796B; }  DARK TEAL
+{ background: #009688; }    TEAL
+{ background: #B2DFDB; }		LIGHT TEAL
+{ color: #FFFFFF; }			WHITE
+{ background: #00BCD4; }		BLUE
+{ color: #212121; }			BLACK
+{ color: #757575; }			medium gray
+{ border-color: #BDBDBD; }	light gray */
 
 @import url('https://fonts.googleapis.com/css?family=Lato');
 * {
@@ -20,20 +15,6 @@
 -moz-box-sizing: border-box;
 box-sizing: border-box;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 body {
 	margin:0;
@@ -48,7 +29,6 @@ div#form_container{
 	padding:10px 0;
 	border: 4px solid #00796B;
 	border-radius:10px;
-
 }
 
 .single_blog_wrapper{

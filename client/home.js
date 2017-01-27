@@ -21,7 +21,7 @@ class Home extends React.Component {
 			return <div><EditBlogForm /></div>
 		} else {
 			return <div>
-					<h1>my blog</h1>
+					<h1>my blog redux </h1>
 					<NewBlog />
 					<PublishedBlogs />
 				</div>;

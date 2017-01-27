@@ -34,7 +34,7 @@ class editBlogForm extends React.Component {
       <input type="text" name="tags" defaultValue={this.props.blogToEdit.tags}/>
 
     <button type="submit">
-      Save Edit
+      save
     </button>
   </form>
       </div>
