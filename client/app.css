@@ -132,27 +132,13 @@ input[type=text]:focus,textarea:focus {
 
 
 
-@media screen and (max-device-width: 320px)
+/*@media screen and (max-width: 320px)
 {
-  ul
-  {
-    font-size: 1em;
-  }
-  button {
-  	margin-left: 10px;
+  body {
+  	background-color: orange;
   }
 }
-
-
-
-
-/*@media screen and (max-device-width : 1204px)
-{
-  body or yourdiv element
-  {
-    font:<size>px/em/cm;
-  }
-}*/
+*/
 
 
 
