@@ -21,7 +21,8 @@ class Home extends React.Component {
 			return <div><EditBlogForm /></div>
 		} else {
 			return <div>
-					<h1>my blog redux </h1>
+					<h1>my blog redux - make an annonymous blog post </h1>
+					<h2>... or delete a post annonymously</h2>
 					<NewBlog />
 					<PublishedBlogs />
 				</div>;
