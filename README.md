@@ -5,7 +5,6 @@ A full-stack React app - *with Redux* - with the basic CRUD operations working.
 
 This was designed as a comparison to my project My Blog, a full-stack React app without Redux (https://github.com/emontecalvo/myBlog).
 
-![Alt text](./blog_pure_react.png?raw=true "My Blog - Pure React")
 ![Alt text](./blog_redux.png?raw=true "My Blog with Redux")
 
 
@@ -65,7 +64,7 @@ This was designed as a comparison to my project My Blog, a full-stack React app 
 ```
 
 ### Development Roadmap
-Plans to add to this blog at a later date are below:
+Plans to add to this project at a later date are below:
 
 * Add authentication
   * Authentication without React-router
