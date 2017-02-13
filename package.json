@@ -5,9 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "npm run build && node server.js",
-    "build": "mkdir -p build && cp client/*.css client/*.html client/*.png build/ && webpack",
+    "build": "mkdir -p build && cp client/*.css client/*.html client/*.png client/*.ico build/ && webpack",
     "watch": "npm run build && run-p watch:*",
-    "watch:copy": "chokidar \"client/*.css\" \"client/*.html\" \"client/*.png\" -c \"cp {path} build/\"",
+    "watch:copy": "chokidar \"client/*.css\" \"client/*.html\" \"client/*.png\" \"client/*.ico\" -c \"cp {path} build/\"",
     "watch:js": "webpack --watch",
     "watch:server": "nodemon -w server.js server.js -x \"npm run\"",
     "server.js": "npm start",
