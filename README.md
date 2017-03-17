@@ -1,5 +1,5 @@
 
-#My Blog Redux#
+# My Blog Redux
 
 A full-stack React app - *with Redux* - with the basic CRUD operations working.
 
@@ -8,7 +8,7 @@ This was designed as a comparison to my project My Blog, a full-stack React app 
 ![Alt text](./blog_redux.png?raw=true "My Blog with Redux")
 
 
-###Setup Instructions:
+### Setup Instructions:
 
 * To use this application, simply clone or download the repository.
 
@@ -32,7 +32,7 @@ This was designed as a comparison to my project My Blog, a full-stack React app 
 * https://emontecalvo.github.io/blogDemo/
 
 
-###Technologies (Quick Overview)
+### Technologies (Quick Overview)
 * Node.js
 * React
 * Redux
@@ -42,10 +42,10 @@ This was designed as a comparison to my project My Blog, a full-stack React app 
 * Express
 * Webpack
 
-###Origin
+### Origin
 * A lack of simple CRUD application information with the MERN stack was what inspired this project.  This project is as much about the technologies and dependencies used as it is about the technologies and dependencies *not* used.
 
-###Functionality and Technology
+### Functionality and Technology
 * MERN stack (MongoDB, Express, React, Node).
 * This app was built to be responsive across multiple web-browsers and multiple sizes *without* using media searches in the CSS.
 * The front-end was built with React and Redux.
